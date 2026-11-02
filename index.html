@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#183e36">
+  <meta name="description" content="Explore the Wheebuy spreadsheet guide: browse fashion categories, compare product details, check sizing and QC photos, and organize shopping finds.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Wheebuy Spreadsheet — The Considered Finds Guide">
+  <meta property="og:description" content="A practical guide to organizing fashion finds, comparing listings, checking measurements, and reviewing product photos.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Wheebuy Spreadsheet — The Considered Finds Guide">
+  <meta name="twitter:description" content="Browse categories and learn a clearer way to compare fashion finds before ordering.">
+  <title>Wheebuy Spreadsheet — Fashion Finds &amp; QC Guide</title>
+  <style>
+    :root {
+      --paper:#f5f2e9;
+      --white:#fffdf8;
+      --ink:#192d27;
+      --muted:#57665c;
+      --green:#183e36;
+      --lime:#e1edaa;
+      --line:#d7dccd;
+      --clay:#ecd9c9;
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,summary:focus-visible{outline:3px solid #8b6125;outline-offset:5px}
+    a:hover{text-decoration:underline;text-underline-offset:4px}
+    svg{display:block;width:100%;height:auto}
+    h1,h2,h3,p{margin:0}
+    h1,h2,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:400}
+    h1{font-size:clamp(3.1rem,7.8vw,6.7rem);line-height:1.02;letter-spacing:-.055em;max-width:850px}
+    h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.13;letter-spacing:-.035em}
+    h3{font-size:1.08rem;line-height:1.4}
+    .wrap{width:min(1240px,calc(100% - 48px));margin:auto}
+    .eyebrow{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.17em}
+    .muted{color:var(--muted)}
+    .topline{background:var(--green);color:var(--lime);text-align:center;padding:9px 20px;font-size:.75rem;letter-spacing:.035em}
+    header{border-bottom:1px solid var(--line)}
+    .masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:88px}
+    .wordmark{font-size:1.5rem;font-weight:800;letter-spacing:-.07em}
+    .wordmark span{font-weight:400;letter-spacing:-.025em}
+    .header-links{display:flex;align-items:center;gap:26px;font-size:.8rem}
+    .small-cta{background:var(--green);color:var(--white);padding:10px 16px;border-radius:30px}
+    .categories{padding:25px 0 28px;border-bottom:1px solid var(--line)}
+    .category-head{display:flex;justify-content:space-between;gap:18px;margin-bottom:14px;align-items:center}
+    .category-head p:last-child{font-size:.75rem;color:var(--muted)}
+    .category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+    .category-grid a{padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-size:.78rem;background:var(--white);display:flex;justify-content:space-between;align-items:center;gap:6px;transition:background .15s,color .15s}
+    .category-grid a:hover{background:var(--green);color:white;text-decoration:none}
+    .category-grid span{opacity:.55}
+    .hero{padding:64px 0 42px}
+    .hero-layout{display:grid;grid-template-columns:1.65fr 1fr;gap:54px;align-items:end}
+    .hero .eyebrow{margin-bottom:23px}
+    .hero h1 em{font-style:italic;color:#587253}
+    .hero-copy{max-width:425px}
+    .hero-copy>p{font-size:1.03rem;color:var(--muted)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:22px;padding:14px 22px;background:var(--green);color:var(--white);border-radius:40px;font-size:.85rem;font-weight:700}
+    .hero-copy .button{margin-top:24px}
+    .hero-note{font-size:.72rem!important;margin-top:17px}
+    .answer{display:grid;grid-template-columns:180px 1fr;gap:26px;background:var(--lime);padding:26px 30px;border-radius:var(--radius);margin-top:42px}
+    .answer h2{font-family:Arial,Helvetica,sans-serif;font-size:.8rem;line-height:1.6;letter-spacing:0;font-weight:700}
+    .answer p{font-size:.94rem}
+    section.editorial{padding:44px 0 62px}
+    .section-head{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:25px}
+    .section-head .eyebrow{margin-bottom:12px}
+    .section-head>p{max-width:350px;font-size:.85rem;color:var(--muted)}
+    .looks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+    .look{min-width:0}
+    .art{overflow:hidden;border-radius:var(--radius);background:#e7e8de}
+    .art svg{aspect-ratio:4/4.7}
+    .look-info{padding:17px 2px 0}
+    .look-info .eyebrow{font-size:.62rem;color:var(--muted);margin-bottom:6px}
+    .look-info p{font-size:.8rem;color:var(--muted);margin-top:6px}
+    .look-info a{font-size:.79rem;font-weight:700;display:inline-block;margin-top:12px}
+    .image-note{font-size:.72rem;color:var(--muted);margin-top:22px;max-width:850px}
+    .guide{background:var(--green);color:var(--white);padding:62px 0}
+    .guide-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:70px}
+    .guide .eyebrow{color:var(--lime);margin-bottom:16px}
+    .guide-intro>p:last-child{margin-top:20px;color:#d1ded4;font-size:.92rem;max-width:340px}
+    .steps{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .step{border-top:1px solid #6b8175;padding-top:17px}
+    .step-number{font-size:.75rem;color:var(--lime);display:block;margin-bottom:12px}
+    .step p{color:#d1ded4;font-size:.83rem;margin-top:9px}
+    .compare{padding:65px 0}
+    .compare h2{max-width:680px;margin-bottom:15px}
+    .compare>.wrap>p{max-width:780px;font-size:.94rem;color:var(--muted)}
+    .table-wrap{overflow-x:auto;margin-top:28px;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+    table{width:100%;border-collapse:collapse;text-align:left;font-size:.85rem}
+    th,td{padding:18px 21px;vertical-align:top;border-bottom:1px solid var(--line)}
+    thead{background:#e7ebdc}
+    th{font-size:.74rem}
+    tbody th{width:22%;font-size:.84rem}
+    tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+    .guide-note{margin-top:16px;font-size:.77rem;color:var(--muted)}
+    .topics{padding:0 0 65px}
+    .topic-panel{background:#eae5d9;border-radius:var(--radius);padding:34px}
+    .topic-panel h2{font-size:2rem;margin:10px 0}
+    .topic-panel>p{font-size:.87rem;max-width:720px;color:var(--muted)}
+    .topic-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:26px}
+    .topic-columns h3{font-size:.83rem;margin-bottom:13px}
+    .topic-columns ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+    .topic-columns li{font-size:.7rem;border:1px solid #c9cabc;border-radius:5px;padding:5px 8px;background:#f6f3eb}
+    .faq{padding:0 0 65px}
+    .faq-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:70px}
+    .faq-title p{margin-top:17px;color:var(--muted);font-size:.9rem;max-width:300px}
+    details{border-bottom:1px solid var(--line);padding:20px 0}
+    details:first-child{padding-top:0}
+    summary{cursor:pointer;font-size:.96rem;font-weight:700;padding-right:20px}
+    details p{font-size:.86rem;color:var(--muted);padding-top:13px;max-width:680px}
+    .closing{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:35px;background:var(--clay);border-radius:var(--radius);margin-bottom:50px}
+    .closing h2{font-size:2rem}
+    .closing p{font-size:.85rem;color:var(--muted);margin-top:9px}
+    footer{border-top:1px solid var(--line);padding:30px 0}
+    .footer-grid{display:flex;justify-content:space-between;align-items:start;gap:30px}
+    footer p{max-width:770px;color:var(--muted);font-size:.73rem;margin-top:8px}
+    footer a{font-size:.78rem;font-weight:700;white-space:nowrap}
+    @media(min-width:900px){.topics,.faq{content-visibility:auto;contain-intrinsic-size:auto 500px}}
+    @media(max-width:900px){
+      .hero-layout,.guide-grid,.faq-grid{grid-template-columns:1fr;gap:30px}
+      .hero-copy{max-width:640px}
+      .hero{padding-top:42px}
+      .looks{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 17px}
+      .category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .topic-columns{grid-template-columns:1fr}
+      .section-head{align-items:start}
+      .guide-intro>p:last-child,.faq-title p{max-width:650px}
+    }
+    @media(max-width:560px){
+      .wrap{width:calc(100% - 30px)}
+      .masthead{min-height:75px}
+      .wordmark{font-size:1.28rem}
+      .header-links>a:first-child{display:none}
+      .header-links{gap:0}
+      .small-cta{font-size:.72rem;padding:9px 12px}
+      .category-head p:last-child{display:none}
+      .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .category-grid a{font-size:.72rem;padding:10px}
+      h1{font-size:3.25rem}
+      .hero{padding-top:34px}
+      .answer{grid-template-columns:1fr;gap:8px;padding:22px;margin-top:30px}
+      .section-head{display:block}
+      .section-head>p{margin-top:16px}
+      .look-info h3{font-size:.94rem}
+      .look-info p{font-size:.75rem}
+      .steps{grid-template-columns:1fr;gap:24px}
+      .guide,.compare{padding-top:43px;padding-bottom:43px}
+      .topic-panel{padding:24px}
+      th,td{padding:14px;min-width:160px}
+      .closing{display:block;padding:25px}
+      .closing .button{margin-top:22px}
+      .footer-grid{display:block}
+      footer a{display:inline-block;margin-top:17px}
+    }
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"#webpage",
+        "name":"Wheebuy Spreadsheet — Fashion Finds & QC Guide",
+        "inLanguage":"en",
+        "description":"An independent guide to organizing fashion finds, browsing categories, checking measurements, and reviewing quality-control photos.",
+        "about":{"@type":"Thing","name":"Wheebuy spreadsheet"},
+        "keywords":[
+          "wheebuy spreadsheet",
+          "wheebuy finds",
+          "wheebuy product links",
+          "wheebuy shopping guide",
+          "wheebuy QC guide"
+        ],
+        "hasPart":[{"@id":"#shopping-guide"},{"@id":"#faq"}]
+      },
+      {
+        "@type":"Article",
+        "@id":"#shopping-guide",
+        "headline":"How to use a Wheebuy spreadsheet",
+        "inLanguage":"en",
+        "articleSection":"Shopping research",
+        "description":"A four-step workflow for collecting product links, comparing listing information, checking measurements, and reviewing costs.",
+        "isPartOf":{"@id":"#webpage"}
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"#faq",
+        "inLanguage":"en",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What is a Wheebuy spreadsheet?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"A Wheebuy spreadsheet is a product-research list used to organize links, categories, prices, measurements, and comparison notes. Its usefulness depends on how accurately its entries are maintained."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does this page provide a downloadable spreadsheet?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. This page is a browsing and comparison guide. Its category buttons open CAFANS category pages; it does not host a spreadsheet download or a live Wheebuy catalog."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"What should I check in QC photos?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Check whether the photos match the selected color and variant, then examine visible construction, stitching, labels, hardware, and measurements. Photos cannot establish authenticity or reveal every material or durability issue."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How should I compare clothing and shoe sizes?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Compare the seller's measurements with an item that fits you. For clothing, check chest, length, shoulders, waist, and inseam as relevant. For shoes, compare the stated sizing system and available foot-length guidance."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Are listed prices the total delivered cost?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Do not assume so. Check the currency and confirm product cost, applicable service charges, domestic delivery, international shipping, and any taxes or duties that apply to your destination."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Is this an official Wheebuy or brand website?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. This is an independent editorial guide linking to CAFANS. It is not presented as an official Wheebuy, Nike, Louis Vuitton, Gucci, or Hermès website."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/whee-btfef/">
+</head>
+<body>
+  <div class="topline">THE CONSIDERED FINDS GUIDE · CATEGORY DISCOVERY &amp; PRACTICAL COMPARISON</div>
+
+  <header>
+    <div class="wrap masthead">
+      <a class="wordmark" href="https://www.cafans.com" aria-label="Visit CAFANS home">CAFANS<span> / fieldnotes</span></a>
+      <nav class="header-links" aria-label="Main navigation">
+        <a href="https://www.cafans.com">Explore the collection</a>
+        <a class="small-cta" href="https://www.cafans.com">Browse finds ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav class="categories" aria-label="Product categories">
+      <div class="wrap">
+        <div class="category-head">
+          <p class="eyebrow">Start with a category</p>
+          <p>Category links open CAFANS</p>
+        </div>
+        <div class="category-grid">
+          <a href="https://cafans.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a>
+          <a href="https://cafans.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-layout">
+          <div>
+            <p class="eyebrow">An independent shopping field guide</p>
+            <h1>Wheebuy<br>spreadsheet.<br><em>A considered edit.</em></h1>
+          </div>
+          <div class="hero-copy">
+            <p>Build a shortlist with context. Explore fashion categories, compare the details that matter, and keep useful notes beside every product link.</p>
+            <a class="button" href="https://www.cafans.com">Discover CAFANS finds <span aria-hidden="true">↗</span></a>
+            <p class="hero-note">A browsing guide with practical checks. Category links lead to CAFANS; no live inventory or downloadable spreadsheet is hosted here.</p>
+          </div>
+        </div>
+
+        <aside class="answer" aria-labelledby="quick-answer">
+          <h2 id="quick-answer">WHAT IS A<br>WHEEBUY SPREADSHEET?</h2>
+          <p>A <strong>Wheebuy spreadsheet</strong> is a product-research list used to organize links, categories, prices, measurements, and comparison notes. Its usefulness depends on how accurately its entries are maintained. Start with a category, then verify each listing before making a decision.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="editorial" aria-labelledby="visual-edit">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The visual notebook</p>
+            <h2 id="visual-edit">Four directions.<br>One useful shortlist.</h2>
+          </div>
+          <p>Brand references offer visual context. Use category browsing to research actual listings, availability, materials, and seller information.</p>
+        </div>
+
+        <div class="looks">
+          <article class="look">
+            <div class="art">
+              <svg viewBox="0 0 320 376" role="img" aria-labelledby="nike-title nike-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="nike-title">Nike footwear editorial illustration</title>
+                <desc id="nike-desc">An original illustration of a cream athletic shoe on a pale green background, with a Nike editorial label. This is not a product photograph.</desc>
+                <rect width="320" height="376" fill="#dde5d6"/>
+                <circle cx="251" cy="91" r="95" fill="#c8d5be"/>
+                <path d="M0 300L320 251V376H0Z" fill="#c6d1bd"/>
+                <ellipse cx="160" cy="291" rx="120" ry="17" fill="#53634f" opacity=".15"/>
+                <g transform="rotate(-12 160 220)">
+                  <path d="M52 240L60 176L96 181L123 206L166 210L204 233L257 244Q280 249 279 270H50Z" fill="#f9f5e9" stroke="#68715e" stroke-width="3"/>
+                  <path d="M53 257Q135 269 279 259L277 278H48Z" fill="#fefcf3" stroke="#68715e" stroke-width="3"/>
+                  <path d="M91 188L113 218L153 225L173 246" fill="none" stroke="#a4ac92" stroke-width="11"/>
+                  <path d="M117 211L138 208M127 220L151 216M139 229L163 224" stroke="#fcfaf1" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M68 207L84 211M66 219L89 223" stroke="#d0d3bf" stroke-width="3"/>
+                  <path d="M210 247L256 257" stroke="#d0d3bf" stroke-width="3"/>
+                </g>
+                <text x="24" y="36" fill="#42533e" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">01 / FOOTWEAR</text>
+                <text x="24" y="339" fill="#283e2a" font-family="Georgia,serif" font-size="32">Nike</text>
+                <text x="25" y="359" fill="#42533e" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.5">EDITORIAL STYLE ILLUSTRATION</text>
+              </svg>
+            </div>
+            <div class="look-info">
+              <p class="eyebrow">Sport / everyday</p>
+              <h3>Start from the silhouette</h3>
+              <p>Compare the sole profile, upper material, and available sizing guidance.</p>
+              <a href="https://cafans.com/category-911-Shoes.html">Explore shoes ↗</a>
+            </div>
+          </article>
+
+          <article class="look">
+            <div class="art">
+              <svg viewBox="0 0 320 376" role="img" aria-labelledby="lv-title lv-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="lv-title">Louis Vuitton clothing editorial illustration</title>
+                <desc id="lv-desc">An original illustration of a brown collared jacket with a Louis Vuitton editorial label. This is not a depiction of a verified brand product.</desc>
+                <rect width="320" height="376" fill="#eadcca"/>
+                <rect x="25" y="64" width="270" height="242" rx="135" fill="#dac6af"/>
+                <path d="M107 112L138 94H182L213 112L263 157L233 190L207 169L213 287H107L113 169L87 190L57 157Z" fill="#78583f" stroke="#513d2d" stroke-width="3"/>
+                <path d="M138 94L160 121L182 94L193 123L170 143L160 121L150 143L127 123Z" fill="#c9ac85" stroke="#513d2d" stroke-width="2"/>
+                <path d="M160 126V287M116 224H144V253H116M177 224H204V253H177" fill="none" stroke="#bd9a70" stroke-width="2"/>
+                <g fill="#d6bd98"><circle cx="166" cy="166" r="3"/><circle cx="166" cy="197" r="3"/><circle cx="166" cy="228" r="3"/><circle cx="166" cy="259" r="3"/></g>
+                <text x="24" y="36" fill="#654c37" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">02 / CLOTHING</text>
+                <text x="24" y="339" fill="#543d2c" font-family="Georgia,serif" font-size="29">Louis Vuitton</text>
+                <text x="25" y="359" fill="#654c37" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.5">EDITORIAL STYLE ILLUSTRATION</text>
+              </svg>
+            </div>
+            <div class="look-info">
+              <p class="eyebrow">Texture / structure</p>
+              <h3>Read the construction</h3>
+              <p>Check fabric descriptions, shoulder measurements, lining, and closures.</p>
+              <a href="https://cafans.com/category-914-Jackets.html">Explore jackets ↗</a>
+            </div>
+          </article>
+
+          <article class="look">
+            <div class="art">
+              <svg viewBox="0 0 320 376" role="img" aria-labelledby="gucci-title gucci-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="gucci-title">Gucci headwear editorial illustration</title>
+                <desc id="gucci-desc">An original illustration of an olive cap on a pale blue background, with a Gucci editorial label. This is not a product photograph.</desc>
+                <rect width="320" height="376" fill="#dce5e7"/>
+                <circle cx="154" cy="180" r="116" fill="#c8d7da"/>
+                <ellipse cx="164" cy="282" rx="107" ry="14" fill="#466063" opacity=".15"/>
+                <path d="M77 227Q71 121 153 116Q235 120 243 227Z" fill="#64705b" stroke="#3e4b3c" stroke-width="3"/>
+                <path d="M153 118Q130 162 136 224M153 118Q187 165 192 226" fill="none" stroke="#96a084" stroke-width="2"/>
+                <path d="M80 225Q171 210 241 227L280 257Q211 280 110 251Z" fill="#465640" stroke="#3e4b3c" stroke-width="3"/>
+                <path d="M126 181H190V201H126Z" fill="#354d3b"/>
+                <path d="M126 188H190V194H126Z" fill="#a87058"/>
+                <ellipse cx="154" cy="116" rx="9" ry="5" fill="#465640"/>
+                <text x="24" y="36" fill="#435e61" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">03 / HEADWEAR</text>
+                <text x="24" y="339" fill="#304a4d" font-family="Georgia,serif" font-size="32">Gucci</text>
+                <text x="25" y="359" fill="#435e61" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.5">EDITORIAL STYLE ILLUSTRATION</text>
+              </svg>
+            </div>
+            <div class="look-info">
+              <p class="eyebrow">Proportion / finishing</p>
+              <h3>Focus on the small details</h3>
+              <p>Review head circumference, adjustment hardware, stitching, and shape.</p>
+              <a href="https://cafans.com/category-916-Headwear.html">Explore headwear ↗</a>
+            </div>
+          </article>
+
+          <article class="look">
+            <div class="art">
+              <svg viewBox="0 0 320 376" role="img" aria-labelledby="hermes-title hermes-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="hermes-title">Hermès jewelry editorial illustration</title>
+                <desc id="hermes-desc">An original illustration of a gold-tone chain bracelet on a terracotta display, with a Hermès editorial label. This is not a verified brand item.</desc>
+                <rect width="320" height="376" fill="#e9d8ce"/>
+                <path d="M50 279L86 151L239 151L276 279Z" fill="#bf8f78"/>
+                <path d="M86 151L127 120H205L239 151Z" fill="#d2aa93"/>
+                <g fill="none" stroke="#f1d299" stroke-width="12">
+                  <ellipse cx="122" cy="176" rx="23" ry="16" transform="rotate(-35 122 176)"/>
+                  <ellipse cx="102" cy="211" rx="23" ry="16" transform="rotate(-75 102 211)"/>
+                  <ellipse cx="122" cy="246" rx="23" ry="16" transform="rotate(35 122 246)"/>
+                  <ellipse cx="164" cy="255" rx="23" ry="16"/>
+                  <ellipse cx="204" cy="239" rx="23" ry="16" transform="rotate(-40 204 239)"/>
+                  <ellipse cx="218" cy="201" rx="23" ry="16" transform="rotate(-90 218 201)"/>
+                  <ellipse cx="193" cy="170" rx="23" ry="16" transform="rotate(25 193 170)"/>
+                  <ellipse cx="155" cy="161" rx="23" ry="16"/>
+                </g>
+                <text x="24" y="36" fill="#795745" font-family="Arial,sans-serif" font-size="11" letter-spacing="3">04 / JEWELRY</text>
+                <text x="24" y="339" fill="#644636" font-family="Georgia,serif" font-size="32">Hermès</text>
+                <text x="25" y="359" fill="#795745" font-family="Arial,sans-serif" font-size="9" letter-spacing="1.5">EDITORIAL STYLE ILLUSTRATION</text>
+              </svg>
+            </div>
+            <div class="look-info">
+              <p class="eyebrow">Metal / proportion</p>
+              <h3>Check more than the finish</h3>
+              <p>Confirm dimensions, declared materials, fastening details, and care advice.</p>
+              <a href="https://cafans.com/category-920-Accessories.html">Explore accessories ↗</a>
+            </div>
+          </article>
+        </div>
+        <p class="image-note">Visual note: these are original inline style illustrations, not product photographs or authenticated brand listings. Nike, Louis Vuitton, Gucci, and Hermès are referenced for editorial context. Category destinations may contain different items.</p>
+      </div>
+    </section>
+
+    <section class="guide" aria-labelledby="workflow-title">
+      <div class="wrap guide-grid">
+        <div class="guide-intro">
+          <p class="eyebrow">Wheebuy shopping guide</p>
+          <h2 id="workflow-title">A useful list begins<br>with better notes.</h2>
+          <p>Use this four-step workflow when collecting Wheebuy finds. A clear record makes it easier to compare options and notice missing information.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01 / COLLECT</span>
+            <h3>Keep the source beside the item</h3>
+            <p>Save the product URL, seller name, selected variant, and the date you checked it. Treat Wheebuy product links as research leads that need verification.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">02 / COMPARE</span>
+            <h3>Record comparable details</h3>
+            <p>Keep currency, listed price, material description, and measurements in separate fields. Similar photos do not establish that two listings are identical.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">03 / INSPECT</span>
+            <h3>Use a consistent photo checklist</h3>
+            <p>For a Wheebuy QC guide, start with variant accuracy, visible stitching, hardware, labels, and measurement photos. Record what remains uncertain.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">04 / REVIEW</span>
+            <h3>Check the complete decision</h3>
+            <p>Confirm current availability, return conditions, shipping options, and applicable charges. Revisit saved information before placing an order.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare" aria-labelledby="comparison-title">
+      <div class="wrap">
+        <p class="eyebrow">The comparison sheet</p>
+        <h2 id="comparison-title">What deserves its own column?</h2>
+        <p>A good product list keeps facts separate from impressions. These fields work across footwear, clothing, headwear, and accessories.</p>
+        <div class="table-wrap">
+          <table>
+            <caption style="text-align:left;padding:16px 21px;font-size:.8rem;color:#57665c">Suggested fields for your own shopping research sheet</caption>
+            <thead>
+              <tr>
+                <th scope="col">Field</th>
+                <th scope="col">What to record</th>
+                <th scope="col">Why it helps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Source &amp; variant</th>
+                <td>Original URL, seller, color, size, and date checked.</td>
+                <td>Connects your notes to the exact listing you reviewed.</td>
+              </tr>
+              <tr>
+                <th scope="row">Price &amp; currency</th>
+                <td>Listed amount, currency, and separately quoted fees.</td>
+                <td>Prevents comparisons between amounts with different assumptions.</td>
+              </tr>
+              <tr>
+                <th scope="row">Measurements</th>
+                <td>Relevant dimensions, units, and seller sizing notes.</td>
+                <td>Supports a fit comparison with an item you already own.</td>
+              </tr>
+              <tr>
+                <th scope="row">Materials &amp; photos</th>
+                <td>Seller declarations, image source, and visible details.</td>
+                <td>Separates documented information from visual guesses.</td>
+              </tr>
+              <tr>
+                <th scope="row">Delivery &amp; returns</th>
+                <td>Quoted shipping terms, destination, and return conditions.</td>
+                <td>Makes practical limitations visible before you commit.</td>
+              </tr>
+              <tr>
+                <th scope="row">Open questions</th>
+                <td>Unverified details and information still needed.</td>
+                <td>Keeps uncertainty explicit instead of treating it as a fact.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="guide-note">This is a research framework. It does not supply live prices, shipping quotations, seller ratings, or authenticity verification.</p>
+      </div>
+    </section>
+
+    <section class="topics" aria-labelledby="topics-title">
+      <div class="wrap topic-panel">
+        <p class="eyebrow">Research vocabulary</p>
+        <h2 id="topics-title">Follow the question that matters.</h2>
+        <p>These 30 related search topics describe useful research tasks. They are topic suggestions, with no claimed search-volume or popularity ranking.</p>
+        <div class="topic-columns">
+          <div>
+            <h3>Discover &amp; organize</h3>
+            <ul>
+              <li>Wheebuy fashion finds</li>
+              <li>Wheebuy clothing list</li>
+              <li>Wheebuy sneaker finds</li>
+              <li>Wheebuy hoodie finds</li>
+              <li>Wheebuy T-shirt finds</li>
+              <li>Wheebuy jacket finds</li>
+              <li>Wheebuy pants finds</li>
+              <li>Wheebuy headwear finds</li>
+              <li>Wheebuy accessories list</li>
+              <li>shopping spreadsheet template</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Inspect &amp; compare</h3>
+            <ul>
+              <li>Wheebuy QC photos</li>
+              <li>product photo checklist</li>
+              <li>seller listing comparison</li>
+              <li>clothing measurement guide</li>
+              <li>sneaker sizing guide</li>
+              <li>hoodie size chart</li>
+              <li>fabric composition check</li>
+              <li>jacket shoulder measurements</li>
+              <li>accessory material details</li>
+              <li>product variant comparison</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Plan &amp; verify</h3>
+            <ul>
+              <li>Wheebuy ordering checklist</li>
+              <li>shopping agent fee comparison</li>
+              <li>international delivery estimate</li>
+              <li>parcel weight estimate</li>
+              <li>volumetric weight explanation</li>
+              <li>currency conversion notes</li>
+              <li>seller return conditions</li>
+              <li>product availability check</li>
+              <li>total shopping cost worksheet</li>
+              <li>saved product link tracker</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div class="faq-title">
+          <p class="eyebrow">Clear answers</p>
+          <h2 id="faq-title">Before you<br>build your list.</h2>
+          <p>Practical answers about spreadsheet research, sizing, product photos, and the purpose of this page.</p>
+        </div>
+        <div>
+          <details open>
+            <summary>What is a Wheebuy spreadsheet?</summary>
+            <p>A Wheebuy spreadsheet is a product-research list used to organize links, categories, prices, measurements, and comparison notes. Its usefulness depends on how accurately its entries are maintained.</p>
+          </details>
+          <details>
+            <summary>Does this page provide a downloadable spreadsheet?</summary>
+            <p>No. This page is a browsing and comparison guide. Its category buttons open CAFANS category pages; it does not host a spreadsheet download or a live Wheebuy catalog.</p>
+          </details>
+          <details>
+            <summary>What should I check in QC photos?</summary>
+            <p>Check whether the photos match the selected color and variant, then examine visible construction, stitching, labels, hardware, and measurements. Photos cannot establish authenticity or reveal every material or durability issue.</p>
+          </details>
+          <details>
+            <summary>How should I compare clothing and shoe sizes?</summary>
+            <p>Compare the seller's measurements with an item that fits you. For clothing, check chest, length, shoulders, waist, and inseam as relevant. For shoes, compare the stated sizing system and available foot-length guidance.</p>
+          </details>
+          <details>
+            <summary>Are listed prices the total delivered cost?</summary>
+            <p>Do not assume so. Check the currency and confirm product cost, applicable service charges, domestic delivery, international shipping, and any taxes or duties that apply to your destination.</p>
+          </details>
+          <details>
+            <summary>Is this an official Wheebuy or brand website?</summary>
+            <p>No. This is an independent editorial guide linking to CAFANS. It is not presented as an official Wheebuy, Nike, Louis Vuitton, Gucci, or Hermès website.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="closing" aria-labelledby="closing-title">
+        <div>
+          <p class="eyebrow">From inspiration to research</p>
+          <h2 id="closing-title">Find a category. Make a better comparison.</h2>
+          <p>Open CAFANS to explore listings, then keep the details that support your decision.</p>
+        </div>
+        <a class="button" href="https://www.cafans.com">Explore CAFANS <span aria-hidden="true">↗</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <strong>CAFANS / fieldnotes</strong>
+        <p>Independent Wheebuy spreadsheet research guide. Brand names belong to their respective owners. Illustrations are editorial artwork, not evidence of inventory, product authenticity, endorsement, or affiliation. Verify current product information at the destination listing.</p>
+      </div>
+      <a href="https://www.cafans.com">Visit www.cafans.com ↗</a>
+    </div>
+  </footer>
+</body>
+</html>
